@@ -23,7 +23,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  */
- /* eslint-disable no-extra-boolean-cast*/
+/* eslint-disable no-extra-boolean-cast*/
 'use strict';
 
 var buildStyleInterpolator = require('./buildStyleInterpolator');
@@ -44,6 +44,7 @@ var NavigatorBreadcrumbNavigationBar = require('./NavigatorBreadcrumbNavigationB
 var NavigatorNavigationBar = require('./NavigatorNavigationBar');
 var NavigatorSceneConfigs = require('./NavigatorSceneConfigs');
 var React = require('react');
+var createReactClass = require('create-react-class');
 var Subscribable = require('./Subscribable');
 var TimerMixin = require('react-timer-mixin');
 
@@ -297,7 +298,8 @@ var GESTURE_ACTIONS = [
  * See `Navigator.SceneConfigs` for default animations and more info on
  * available [scene config options](docs/navigator.html#configurescene).
  */
-var Navigator = React.createClass({
+var Navigator = createReactClass({
+  displayName: 'Navigator',
 
   propTypes: {
     /**
@@ -1369,7 +1371,7 @@ var Navigator = React.createClass({
       this._navigationContext = new NavigationContext();
     }
     return this._navigationContext;
-  }
+  },
 });
 
 module.exports = Navigator;
